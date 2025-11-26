@@ -150,11 +150,7 @@ const AdminLogin: React.FC = () => {
           </div>
         </form>
 
-        <div className="text-center">
-          <p className="text-xs text-gray-500">
-            Default credentials: eternabyayman@eterna.com / eterna@123!
-          </p>
-        </div>
+        
       </div>
     </div>
   );

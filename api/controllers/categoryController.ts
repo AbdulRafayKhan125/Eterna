@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import Category from '../models/Category';
+import Product from '../models/Product';
 import { body, validationResult } from 'express-validator';
 
 export const categoryValidation = [
@@ -162,7 +163,6 @@ export const deleteCategory = async (req: Request, res: Response): Promise<void>
     }
 
     // Check if category has products
-    const Product = require('../models/Product').default;
     const productCount = await Product.countDocuments({ category: id });
     
     if (productCount > 0) {
@@ -185,5 +185,20 @@ export const deleteCategory = async (req: Request, res: Response): Promise<void>
       success: false, 
       message: 'Server error' 
     });
+  }
+};
+
+export const getCategory = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { id } = req.params;
+    const category = await Category.findById(id);
+    if (!category) {
+      res.status(404).json({ success: false, message: 'Category not found' });
+      return;
+    }
+    res.json({ success: true, category });
+  } catch (error) {
+    console.error('Get category error:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
   }
 };

@@ -60,9 +60,9 @@ const CategoryManagement: React.FC = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 py-8 space-y-6">
       {/* Page Header */}
-      <div className="bg-white rounded-lg shadow-sm p-6">
+      <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-lg ring-1 ring-white/50 p-6">
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Categories</h1>
@@ -96,7 +96,7 @@ const CategoryManagement: React.FC = () => {
       )}
 
       {/* Categories Table */}
-      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+      <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-lg ring-1 ring-white/50 overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-200">
           <h3 className="text-lg font-medium text-gray-900">Categories List</h3>
         </div>
@@ -119,7 +119,7 @@ const CategoryManagement: React.FC = () => {
         ) : (
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-white/50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Name
@@ -138,7 +138,7 @@ const CategoryManagement: React.FC = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white/60 divide-y divide-gray-200">
                 {categories.map((category) => (
                   <tr key={category._id}>
                     <td className="px-6 py-4 whitespace-nowrap">

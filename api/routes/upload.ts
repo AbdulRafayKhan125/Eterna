@@ -5,7 +5,7 @@ import upload from '../middleware/upload';
 const router = express.Router();
 
 // Upload product images (admin only)
-router.post('/', authenticateToken, upload.array('images', 3), (req, res) => {
+router.post('/', authenticateToken, upload.array('images', 10), (req, res) => {
   try {
     const files = (req.files as Express.Multer.File[]) || [];
     const responseFiles = files.map((file) => ({

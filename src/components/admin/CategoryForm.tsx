@@ -102,9 +102,10 @@ const CategoryForm: React.FC = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 py-10">
+      <div className="max-w-2xl mx-auto">
       {/* Header */}
-      <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+      <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-lg ring-1 ring-white/50 p-6 mb-6">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">
@@ -116,7 +117,7 @@ const CategoryForm: React.FC = () => {
           </div>
           <button
             onClick={() => navigate('/admin/categories')}
-            className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+            className="inline-flex items-center px-4 py-2 border border-white/60 text-sm font-medium rounded-md text-gray-700 bg-white/70 hover:bg-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back
@@ -125,7 +126,7 @@ const CategoryForm: React.FC = () => {
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-sm p-6">
+      <form onSubmit={handleSubmit} className="bg-white/60 backdrop-blur-md rounded-2xl shadow-lg ring-1 ring-white/50 p-6">
         {/* Error Message */}
         {submitError && (
           <div className="rounded-md bg-red-50 p-4 mb-6">
@@ -154,7 +155,7 @@ const CategoryForm: React.FC = () => {
               required
               value={formData.name}
               onChange={handleChange}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm bg-white/70"
               placeholder="Enter category name"
             />
           </div>
@@ -170,7 +171,7 @@ const CategoryForm: React.FC = () => {
               rows={3}
               value={formData.description}
               onChange={handleChange}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm bg-white/70"
               placeholder="Enter category description (optional)"
             />
           </div>
@@ -185,7 +186,7 @@ const CategoryForm: React.FC = () => {
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm bg-white/70"
             >
               <option value="active">Active</option>
               <option value="inactive">Inactive</option>
@@ -198,7 +199,7 @@ const CategoryForm: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600/90 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
           >
             {loading ? (
               <>
@@ -214,6 +215,7 @@ const CategoryForm: React.FC = () => {
           </button>
         </div>
       </form>
+      </div>
     </div>
   );
 };

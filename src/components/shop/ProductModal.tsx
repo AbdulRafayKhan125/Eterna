@@ -74,7 +74,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                       <img
                         src={product.images[currentImageIndex].startsWith('/uploads') ? `${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${product.images[currentImageIndex]}` : product.images[currentImageIndex]}
                         alt={product.name}
-                        className="w-full h-80 object-cover"
+                        className="w-full h-80 object-contain bg-white"
                       />
                     ) : (
                       <div className="w-full h-80 bg-gray-200 flex items-center justify-center">
@@ -137,7 +137,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
 
                   {/* Price */}
                   <div className="text-4xl font-bold text-green-600">
-                    ${product.price.toFixed(2)}
+                    Rs {product.price.toFixed(2)}
                   </div>
 
                   {/* Description */}
@@ -166,18 +166,18 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                   )}
 
                   {/* Action Buttons */}
-                  <div className="space-y-4 pt-4">
+                  <div className="pt-4 flex items-center justify-start gap-3">
                     <button
                       onClick={handleWhatsAppClick}
-                      className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center space-x-2"
+                      className="bg-green-600 hover:bg-green-700 text-white py-3 px-5 rounded-lg font-semibold transition-colors duration-300 flex items-center space-x-2"
                     >
                       <Heart className="h-5 w-5" />
                       <span>Buy via WhatsApp</span>
                     </button>
-                    
+
                     <button
                       onClick={onClose}
-                      className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-medium transition-colors duration-300"
+                      className="bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-5 rounded-lg font-medium transition-colors duration-300"
                     >
                       Close
                     </button>

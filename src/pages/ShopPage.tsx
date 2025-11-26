@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Filter, Search, Eye } from 'lucide-react';
+import { ShoppingBag, Filter, Eye } from 'lucide-react';
 import axios from 'axios';
 import ProductModal from '../components/shop/ProductModal';
 
@@ -123,22 +123,7 @@ const ShopPage: React.FC = () => {
                 </button>
               </div>
 
-              {/* Search */}
-              <form onSubmit={handleSearch} className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Search Products
-                </label>
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="Search products..."
-                    className="pl-10 w-full border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 text-sm"
-                  />
-                </div>
-              </form>
+              
 
               {/* Category Filter */}
               <div className="mb-6">
@@ -230,7 +215,7 @@ const ShopPage: React.FC = () => {
                       <img
                         src={(product.images[0] ? (product.images[0].startsWith('/uploads') ? `${axios.defaults.baseURL}${product.images[0]}` : product.images[0]) : 'https://via.placeholder.com/400x300?text=No+Image')}
                         alt={product.name}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-48 object-contain bg-white"
                       />
                       <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-opacity duration-300"></div>
                       
@@ -261,7 +246,7 @@ const ShopPage: React.FC = () => {
                       
                       <div className="flex items-center justify-between">
                         <span className="text-xl font-bold text-green-600">
-                          ${product.price.toFixed(2)}
+                          Rs {product.price.toFixed(2)}
                         </span>
                         
                         <button

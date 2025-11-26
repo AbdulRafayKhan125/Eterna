@@ -84,7 +84,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ onProductClick }) =
                 <img
                   src={product.images[0] || 'https://via.placeholder.com/400x300?text=No+Image'}
                   alt={product.name}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-48 object-contain bg-white"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300"></div>
                 
@@ -124,7 +124,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ onProductClick }) =
                 
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-green-600">
-                    ${product.price.toFixed(2)}
+                    Rs {product.price.toFixed(2)}
                   </span>
                   
                   <button
