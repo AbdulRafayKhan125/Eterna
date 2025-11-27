@@ -123,6 +123,24 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                       ))}
                     </div>
                   )}
+
+                  {/* Action Buttons under images */}
+                  <div className="pt-2 flex items-center justify-start gap-3">
+                    <button
+                      onClick={handleWhatsAppClick}
+                      className="bg-green-600 hover:bg-green-700 text-white py-3 px-5 rounded-lg font-semibold transition-colors duration-300 flex items-center space-x-2"
+                    >
+                      <Heart className="h-5 w-5" />
+                      <span>Buy via WhatsApp</span>
+                    </button>
+
+                    <button
+                      onClick={onClose}
+                      className="bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-5 rounded-lg font-medium transition-colors duration-300"
+                    >
+                      Close
+                    </button>
+                  </div>
                 </div>
 
                 {/* Product Information */}
@@ -165,23 +183,6 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                     </div>
                   )}
 
-                  {/* Action Buttons */}
-                  <div className="pt-4 flex items-center justify-start gap-3">
-                    <button
-                      onClick={handleWhatsAppClick}
-                      className="bg-green-600 hover:bg-green-700 text-white py-3 px-5 rounded-lg font-semibold transition-colors duration-300 flex items-center space-x-2"
-                    >
-                      <Heart className="h-5 w-5" />
-                      <span>Buy via WhatsApp</span>
-                    </button>
-
-                    <button
-                      onClick={onClose}
-                      className="bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-5 rounded-lg font-medium transition-colors duration-300"
-                    >
-                      Close
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
