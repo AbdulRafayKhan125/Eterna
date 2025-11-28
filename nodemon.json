@@ -1,8 +1,8 @@
 {
-  "watch": ["api"],
+  "watch": ["backend-eterna/api"],
   "ext": "ts,mts,js,json",
   "ignore": ["api/dist/*"],
-  "exec": "tsx api/server.ts",
+  "exec": "tsx backend-eterna/api/server.ts",
   "env": {
     "NODE_ENV": "development"
   },
