@@ -38,6 +38,8 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
     );
   };
 
+  const API_BASE = (import.meta as any)?.env?.VITE_API_URL || 'http://localhost:3001';
+
   const handleWhatsAppClick = () => {
     const message = `Hi! I'm interested in purchasing the ${product.name}. Can you provide more information about pricing and availability?`;
     const whatsappUrl = `https://wa.me/923215020044?text=${encodeURIComponent(message)}`;
@@ -72,7 +74,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                   <div className="relative aspect-w-4 aspect-h-3 bg-gray-100 rounded-lg overflow-hidden">
                     {product.images.length > 0 ? (
                       <img
-                        src={product.images[currentImageIndex].startsWith('/uploads') ? `${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${product.images[currentImageIndex]}` : product.images[currentImageIndex]}
+                        src={product.images[currentImageIndex].startsWith('/uploads') ? `${API_BASE}${product.images[currentImageIndex]}` : product.images[currentImageIndex]}
                         alt={product.name}
                         className="w-full h-80 object-contain bg-white"
                       />
@@ -115,7 +117,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                           }`}
                         >
                           <img
-                            src={image.startsWith('/uploads') ? `${import.meta.env.VITE_API_URL || 'http://localhost:3001'}${image}` : image}
+                            src={image.startsWith('/uploads') ? `${API_BASE}${image}` : image}
                             alt={`${product.name} ${index + 1}`}
                             className="w-full h-full object-cover"
                           />

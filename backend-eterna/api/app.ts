@@ -2,14 +2,10 @@
  * This is a API server
  */
 
-import express, {
-  type Request,
-  type Response,
-  type NextFunction,
-} from 'express'
+import express from 'express'
 import cors from 'cors'
 import path from 'path'
-import dotenv from 'dotenv'
+import { config as dotenvConfig } from 'dotenv'
 import { fileURLToPath } from 'url'
 import connectDB from './config/database.js'
 import authRoutes from './routes/auth.js'
@@ -23,8 +19,8 @@ import setupRoutes from './routes/setup.js'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// load env
-dotenv.config()
+// load env from .env.local only for local dev
+dotenvConfig({ path: '.env.local' })
 
 // Connect to MongoDB
 connectDB()
@@ -53,7 +49,7 @@ app.use('/api/upload', uploadRoutes)
  */
 app.use(
   '/api/health',
-  (req: Request, res: Response, next: NextFunction): void => {
+  (req, res, next): void => {
     res.status(200).json({
       success: true,
       message: 'ok',
@@ -64,7 +60,7 @@ app.use(
 /**
  * error handler middleware
  */
-app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
+app.use((error: Error, req, res, next) => {
   res.status(500).json({
     success: false,
     error: 'Server internal error',
@@ -74,7 +70,7 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
 /**
  * 404 handler
  */
-app.use((req: Request, res: Response) => {
+app.use((req, res) => {
   res.status(404).json({
     success: false,
     error: 'API not found',

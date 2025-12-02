@@ -23,3 +23,17 @@ dist-ssr
 *.sln
 *.sw?
 .vite
+
+# Build outputs
+dist/
+backend-eterna/dist/
+
+# Dependencies
+node_modules/
+frontend-eterna/node_modules/
+backend-eterna/node_modules/
+
+# Environment files (do not commit secrets)
+.env*
+frontend-eterna/.env*
+backend-eterna/.env*

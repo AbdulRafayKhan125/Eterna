@@ -5,13 +5,13 @@ const connectDB = async (): Promise<void> => {
     const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/eterna-skincare';
     
     await mongoose.connect(mongoURI, {
-      // Remove deprecated options
+      dbName: 'eterna',
+      serverSelectionTimeoutMS: 15000,
     });
     
     console.log('MongoDB connected successfully');
   } catch (error) {
     console.error('MongoDB connection error:', error);
-    process.exit(1);
   }
 };
 
